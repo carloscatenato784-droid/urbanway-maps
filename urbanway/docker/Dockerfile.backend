@@ -6,9 +6,6 @@ WORKDIR /app
 # Copia tutto il backend
 COPY backend ./
 
-# Installa dipendenze se non esistono
-RUN [ -d node_modules ] || npm install --prefer-offline --no-audit --omit=dev
-
 # Espone porta
 EXPOSE 5000
 
