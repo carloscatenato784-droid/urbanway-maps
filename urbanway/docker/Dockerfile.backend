@@ -1,23 +1,16 @@
-# Frontend Dockerfile
-FROM node:18-alpine AS builder
+# Backend Dockerfile
+FROM node:18-alpine
 
 WORKDIR /app
 
-# Copia tutto il frontend (incluso node_modules)
-COPY frontend ./
+# Copia tutto il backend
+COPY backend ./
 
-# Build app
-RUN npm run build
+# Installa dipendenze se non esistono
+RUN [ -d node_modules ] || npm install --prefer-offline --no-audit --omit=dev
 
-# Stage finale - serve con nginx
-FROM nginx:alpine
+# Espone porta
+EXPOSE 5000
 
-# Copia configurazione nginx
-COPY docker/nginx.conf /etc/nginx/nginx.conf
-
-# Copia build
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-EXPOSE 3000
-
-CMD ["nginx", "-g", "daemon off;"]
+# Start app
+CMD ["node", "src/server.js"]
