@@ -3,11 +3,7 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Installa dipendenze
-COPY frontend/package.json ./
-RUN npm install
-
-# Copia il resto del codice
+# Copia tutto il frontend (incluso node_modules)
 COPY frontend ./
 
 # Build app
