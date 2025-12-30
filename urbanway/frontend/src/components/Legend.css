@@ -1,0 +1,80 @@
+.legend {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow-medium);
+  padding: 1.25rem;
+  max-width: 300px;
+  z-index: 100;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+}
+
+.legend-title {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  letter-spacing: -0.3px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.legend-color {
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.legend-color.allowed {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 4px rgba(45, 151, 87, 0.3);
+}
+
+.legend-color.excluded {
+  background-color: var(--color-accent);
+  opacity: 0.5;
+}
+
+.legend-info {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.legend-info strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.legend-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend-info li {
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+/* Animation per leggibilità */
+@media (prefers-reduced-motion: reduce) {
+  .legend {
+    animation: none;
+  }
+}
+
